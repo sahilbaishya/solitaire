@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solitaire Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+</head>
+<body>
+    <div class="game-container">
+        <div class="top-section">
+            <div class="deck-area">
+                <div id="deck" class="deck"></div>
+                <div id="waste" class="waste"></div>
+            </div>
+            <div class="foundation-area">
+                <div id="foundation-0" class="foundation" data-foundation="0"></div>
+                <div id="foundation-1" class="foundation" data-foundation="1"></div>
+                <div id="foundation-2" class="foundation" data-foundation="2"></div>
+                <div id="foundation-3" class="foundation" data-foundation="3"></div>
+            </div>
+        </div>
+        <div class="tableau-area">
+            <div id="tableau-0" class="tableau" data-tableau="0"></div>
+            <div id="tableau-1" class="tableau" data-tableau="1"></div>
+            <div id="tableau-2" class="tableau" data-tableau="2"></div>
+            <div id="tableau-3" class="tableau" data-tableau="3"></div>
+            <div id="tableau-4" class="tableau" data-tableau="4"></div>
+            <div id="tableau-5" class="tableau" data-tableau="5"></div>
+            <div id="tableau-6" class="tableau" data-tableau="6"></div>
+        </div>
+    </div>
+    <!-- Moved controls to a fixed position at bottom left -->
+    <div class="controls-container">
+        <div class="game-info-container">
+            <div id="score" class="game-info">Score: 0</div>
+            <div id="timer" class="game-info">Time: 0:00</div>
+        </div>
+        <div class="buttons-container">
+            <button id="new-game">New Game</button>
+            <button id="undo">Undo</button>
+            <button id="auto-complete">Auto Complete</button>
+            <button id="hint">Hint</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

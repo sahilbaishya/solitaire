@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2a7d2a;
+    padding: 20px;
+    min-height: 100vh;
+    position: relative;
+}
+
+
+.game-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.deck-area {
+    display: flex;
+    gap: 20px;
+}
+
+.foundation-area {
+    display: flex;
+    gap: 10px;
+}
+
+.tableau-area {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.deck, .waste, .foundation, .tableau {
+    width: 80px;
+    height: 120px;
+    border-radius: 5px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+.card {
+    width: 80px;
+    height: 120px;
+    border-radius: 5px;
+    background-color: white;
+    position: absolute;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    user-select: none;
+}
+
+.card.dragging {
+    opacity: 0.8;
+    transform: scale(1.05);
+    z-index: 1000;
+}
+
+.card.red {
+    color: red;
+}
+
+.card.black {
+    color: black;
+}
+
+.card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.card-value {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-suit {
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.card.facedown .card-content {
+    display: none;
+}
+
+.card.facedown {
+    background-color: #6c6ce0;
+    background-image: linear-gradient(45deg, #5a5ad2 25%, transparent 25%, transparent 75%, #5a5ad2 75%, #5a5ad2), 
+                      linear-gradient(45deg, #5a5ad2 25%, transparent 25%, transparent 75%, #5a5ad2 75%, #5a5ad2);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+.tableau .card {
+    position: relative;
+    margin-bottom: -90px;
+}
+
+.tableau .card:last-child {
+    margin-bottom: 0;
+}
+
+.controls-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 100; /* Ensure controls appear above cards */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.game-info-container {
+    display: flex;
+    gap: 15px;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 10px;
+}
+
+.game-info {
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+button {
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+}
+
+.over {
+    border: 2px dashed rgba(255, 255, 255, 0.8);
+}
+
+@keyframes win-animation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2) rotate(10deg); }
+    100% { transform: scale(1) rotate(0); }
+}
+
+.win-animation {
+    animation: win-animation 1s infinite;
+}
